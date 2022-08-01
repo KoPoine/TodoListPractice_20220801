@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.neppplus.todolistpractice_20220801.R
 import com.neppplus.todolistpractice_20220801.adapters.TodoListViewAdapter
@@ -39,6 +40,10 @@ class TodoListFragment : Fragment(){
 
         mListAdapter = TodoListViewAdapter(requireContext(), R.layout.todo_list_item, mList)
         todoListView.adapter = mListAdapter
+
+        todoListView.setOnItemClickListener { adapterView, view, i, l ->
+            Toast.makeText(requireContext(), "${i}번째 아이템 선택됨", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
