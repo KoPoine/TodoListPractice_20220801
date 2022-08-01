@@ -1,5 +1,6 @@
 package com.neppplus.todolistpractice_20220801.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,6 +30,21 @@ class SettingFragment : Fragment(){
             startActivityForResult(myIntent, REQ_FOR_EDIT)
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQ_FOR_EDIT) {
+                val nick = data!!.getStringExtra("nick")
+                val phoneNum = data.getStringExtra("phoneNum")
+                val address = data.getStringExtra("address")
+
+                nickTxt.text = nick
+                phoneNumTxt.text = phoneNum
+                addressTxt.text = address
+            }
+        }
     }
 
 }
