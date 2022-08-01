@@ -1,11 +1,14 @@
 package com.neppplus.todolistpractice_20220801.adapters
 
 import android.content.Context
+import android.graphics.Paint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inspector.IntFlagMapping
 import android.widget.ArrayAdapter
+import android.widget.CheckBox
 import android.widget.TextView
 import com.neppplus.todolistpractice_20220801.R
 import com.neppplus.todolistpractice_20220801.datas.TodoData
@@ -29,9 +32,20 @@ class TodoListViewAdapter(
 
         val titleTxt = row.findViewById<TextView>(R.id.titleTxt)
         val ratingBar = row.findViewById<ScaleRatingBar>(R.id.todoRatingBar)
+        val doneCb = row.findViewById<CheckBox>(R.id.doneCb)
 
         titleTxt.text = data.title
         ratingBar.rating = data.rating.toFloat()
+        doneCb.setOnCheckedChangeListener { compoundButton, b ->
+            if (b) {
+//                체크박스의 체크 여부 true => TextView에 취소선 작성
+                titleTxt.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+//                체크박스의 체크 여부 false => TextView에 취소선 삭제
+                titleTxt.paintFlags = 0
+            }
+        }
 
         return row
     }
