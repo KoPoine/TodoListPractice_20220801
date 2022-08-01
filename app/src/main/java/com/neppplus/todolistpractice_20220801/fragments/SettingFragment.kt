@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.neppplus.todolistpractice_20220801.EditProfileActivity
 import com.neppplus.todolistpractice_20220801.R
+import com.neppplus.todolistpractice_20220801.datas.UserData
 import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingFragment : Fragment(){
@@ -26,7 +27,15 @@ class SettingFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         editBtn.setOnClickListener {
+            val nick = nickTxt.text.toString()
+            val phoneNum = phoneNumTxt.text.toString()
+            val address= addressTxt.text.toString()
+
+
+            val userData = UserData(nick, phoneNum, address)
+
             val myIntent = Intent(requireContext(), EditProfileActivity::class.java)
+            myIntent.putExtra("userData", userData)
             startActivityForResult(myIntent, REQ_FOR_EDIT)
         }
 

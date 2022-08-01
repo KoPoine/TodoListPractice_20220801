@@ -23,7 +23,7 @@
             android:id="@+id/nickTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="닉네임 자리"
+            android:text="김민철"
             android:textSize="20sp"
             android:layout_marginTop="10dp"/>
 
@@ -37,7 +37,7 @@
             android:id="@+id/phoneNumTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전화번호 자리"
+            android:text="010-2977-3754"
             android:textSize="20sp"
             android:layout_marginTop="10dp"/>
 
@@ -51,7 +51,7 @@
             android:id="@+id/addressTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="거주지 자리"
+            android:text="서울시 서대문구"
             android:textSize="20sp"
             android:layout_marginTop="10dp"/>
 
