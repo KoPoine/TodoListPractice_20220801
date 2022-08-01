@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.neppplus.todolistpractice_20220801.EditProfileActivity
 import com.neppplus.todolistpractice_20220801.R
 import kotlinx.android.synthetic.main.fragment_setting.*
 
@@ -24,7 +25,7 @@ class SettingFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         editBtn.setOnClickListener {
-            val myIntent = Intent(this, )
+            val myIntent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivityForResult(myIntent, REQ_FOR_EDIT)
         }
 
